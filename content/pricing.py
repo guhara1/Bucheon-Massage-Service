@@ -29,6 +29,6 @@ PRICING = f"""
     <a class="price-btn" href="tel:{PHONE}">예약 문의</a>
   </div>
 </div>
-<p class="price-note">지역·예약 시간대·이동 거리에 따라 상담 시 최종 확인됩니다. <a href="/gyeonggi/bucheon/reservation/#fee">추가 이동비 안내 보기 →</a></p>
+<p class="price-note">지역·예약 시간대·이동 거리에 따라 상담 시 최종 확인됩니다. <a href="/reservation/#fee">추가 이동비 안내 보기 →</a></p>
 </section>
 """

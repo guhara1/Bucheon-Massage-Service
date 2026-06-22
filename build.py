@@ -307,30 +307,30 @@ def render_page(page: dict) -> str:
     <nav class="footer-col" aria-label="지역 안내">
       <p class="footer-title">지역 안내</p>
       <ul>
-        <li><a href="/gyeonggi/bucheon/wonmi-gu/">원미구</a></li>
-        <li><a href="/gyeonggi/bucheon/sosa-gu/">소사구</a></li>
-        <li><a href="/gyeonggi/bucheon/ojeong-gu/">오정구</a></li>
-        <li><a href="/gyeonggi/bucheon/station/">역세권 안내</a></li>
-        <li><a href="/gyeonggi/bucheon/area/">생활권 안내</a></li>
+        <li><a href="/wonmi-gu/">원미구</a></li>
+        <li><a href="/sosa-gu/">소사구</a></li>
+        <li><a href="/ojeong-gu/">오정구</a></li>
+        <li><a href="/station/">역세권 안내</a></li>
+        <li><a href="/area/">생활권 안내</a></li>
       </ul>
     </nav>
     <nav class="footer-col" aria-label="이용 안내">
       <p class="footer-title">이용 안내</p>
       <ul>
-        <li><a href="/gyeonggi/bucheon/reservation/">예약 안내</a></li>
-        <li><a href="/gyeonggi/bucheon/before-visit/">이용 전 확인사항</a></li>
-        <li><a href="/gyeonggi/bucheon/hometai-guide/">홈타이 이용 가이드</a></li>
-        <li><a href="/gyeonggi/bucheon/support/">고객센터</a></li>
-        <li><a href="/gyeonggi/bucheon/support/#faq">자주 묻는 질문</a></li>
+        <li><a href="/reservation/">예약 안내</a></li>
+        <li><a href="/before-visit/">이용 전 확인사항</a></li>
+        <li><a href="/hometai-guide/">홈타이 이용 가이드</a></li>
+        <li><a href="/support/">고객센터</a></li>
+        <li><a href="/support/#faq">자주 묻는 질문</a></li>
       </ul>
     </nav>
     <nav class="footer-col" aria-label="정책 및 기준">
       <p class="footer-title">정책</p>
       <ul>
-        <li><a href="/gyeonggi/bucheon/about/">사이트 소개</a></li>
-        <li><a href="/gyeonggi/bucheon/privacy/">개인정보처리방침</a></li>
-        <li><a href="/gyeonggi/bucheon/terms/">이용약관</a></li>
-        <li><a href="/gyeonggi/bucheon/before-visit/#prohibited">불법·선정적 서비스 불가 안내</a></li>
+        <li><a href="/about/">사이트 소개</a></li>
+        <li><a href="/privacy/">개인정보처리방침</a></li>
+        <li><a href="/terms/">이용약관</a></li>
+        <li><a href="/before-visit/#prohibited">불법·선정적 서비스 불가 안내</a></li>
       </ul>
     </nav>
   </div>
@@ -357,27 +357,6 @@ def render_page(page: dict) -> str:
 """
 
 
-def write_root_redirect() -> None:
-    """루트(/)는 부천 메인(/gyeonggi/bucheon/)으로 보낸다."""
-    html_out = f"""<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url={HOME}">
-<link rel="canonical" href="{BASE}{HOME}">
-<meta name="robots" content="noindex,follow">
-<title>{BRAND} — 부천 출장마사지·홈타이</title>
-</head>
-<body>
-<p><a href="{HOME}">부천 출장마사지·홈타이 안내로 이동</a></p>
-<script>location.replace("{HOME}");</script>
-</body>
-</html>
-"""
-    with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html_out)
-
-
 def build() -> None:
     report = []
     sitemap_urls = []
@@ -396,8 +375,6 @@ def build() -> None:
             sitemap_urls.append(BASE + "/" + path)
         desc_len = len(page["desc"])
         report.append((path or "/", chars, "noindex" if noindex else "index", desc_len))
-
-    write_root_redirect()
 
     # sitemap.xml — 부천 메인을 맨 앞에
     sitemap_urls.sort(key=lambda u: (u != BASE + HOME, u))

@@ -10,7 +10,7 @@ _HERO = f"""<section class="hero">
     <p class="hero-lead">샵까지 가지 않고 계신 곳에서 받는 방문 관리.<br>자택·오피스텔·숙소 어디든 전화 한 통으로 예약이 끝납니다.</p>
     <div class="hero-actions">
       <a class="hero-btn primary" href="tel:{PHONE}">📞 {PHONE_DISPLAY}</a>
-      <a class="hero-btn" href="/gyeonggi/bucheon/reservation/">예약 안내 보기</a>
+      <a class="hero-btn" href="/reservation/">예약 안내 보기</a>
     </div>
     <ul class="hero-stats">
       <li><strong>3개</strong><span>자치구</span></li>
@@ -32,9 +32,9 @@ _BODY = f"""
 <h2>원미구·소사구·오정구 생활권 차이</h2>
 <p>원미구는 부천역과 신중동, 중동, 상동 중심 생활권이 강하고, 소사구는 소사역과 송내역, 옥길·범박 생활권으로 연결됩니다. 오정구는 원종동, 고강동, 오정동, 성곡동 중심의 북부 생활권으로 볼 수 있습니다. 같은 부천이라도 구마다 주거 형태와 이동 동선이 달라, 방문 시간대와 추가 이동비 기준 안내도 구별로 조금씩 다릅니다.</p>
 <ul class="card-grid">
-<li><a href="/gyeonggi/bucheon/wonmi-gu/">원미구</a></li>
-<li><a href="/gyeonggi/bucheon/sosa-gu/">소사구</a></li>
-<li><a href="/gyeonggi/bucheon/ojeong-gu/">오정구</a></li>
+<li><a href="/wonmi-gu/">원미구</a></li>
+<li><a href="/sosa-gu/">소사구</a></li>
+<li><a href="/ojeong-gu/">오정구</a></li>
 </ul>
 </section>
 
@@ -42,51 +42,51 @@ _BODY = f"""
 <h2>상동·중동·송내·역곡·원종 지역별 특징</h2>
 <p>지역별 안내는 부천 대표 동 기준으로 구성됩니다. 심곡1동·심곡2동·심곡3동처럼 번호로 나뉜 행정동은 따로 페이지를 만들지 않고 심곡동·중동·상동·송내동·원종동 같은 대표 생활권으로 통합해 안내합니다. 같은 생활권을 잘게 쪼개 비슷한 내용을 반복하기보다, 대표 동 단위로 묶어 생활권 특징과 방문 조건을 한 번에 설명하는 편이 이용자에게도 정확하기 때문입니다.</p>
 <ul class="card-grid">
-<li><a href="/gyeonggi/bucheon/jung-dong/">중동</a></li>
-<li><a href="/gyeonggi/bucheon/sang-dong/">상동</a></li>
-<li><a href="/gyeonggi/bucheon/songnae-dong/">송내동</a></li>
-<li><a href="/gyeonggi/bucheon/yeokgok-area/">역곡 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/simgok-dong/">심곡동</a></li>
-<li><a href="/gyeonggi/bucheon/sosabon-dong/">소사본동</a></li>
-<li><a href="/gyeonggi/bucheon/okgil-dong/">옥길동</a></li>
-<li><a href="/gyeonggi/bucheon/wonjong-dong/">원종동</a></li>
-<li><a href="/gyeonggi/bucheon/gogang-dong/">고강동</a></li>
+<li><a href="/jung-dong/">중동</a></li>
+<li><a href="/sang-dong/">상동</a></li>
+<li><a href="/songnae-dong/">송내동</a></li>
+<li><a href="/yeokgok-area/">역곡 생활권</a></li>
+<li><a href="/simgok-dong/">심곡동</a></li>
+<li><a href="/sosabon-dong/">소사본동</a></li>
+<li><a href="/okgil-dong/">옥길동</a></li>
+<li><a href="/wonjong-dong/">원종동</a></li>
+<li><a href="/gogang-dong/">고강동</a></li>
 </ul>
-<p>중동은 신중동역과 부천시청역, 중심상권을 담당하고, 상동은 상동역·상동호수공원·부천터미널 생활권을 담당합니다. 송내동은 송내역과 중동·상동 인접권을, 역곡 생활권은 역곡역·괴안동 인접권을 담당합니다. 부천 19개 대표 지역 전체는 <a href="/gyeonggi/bucheon/wonmi-gu/">원미구</a>, <a href="/gyeonggi/bucheon/sosa-gu/">소사구</a>, <a href="/gyeonggi/bucheon/ojeong-gu/">오정구</a> 페이지에서 한눈에 확인하실 수 있습니다.</p>
+<p>중동은 신중동역과 부천시청역, 중심상권을 담당하고, 상동은 상동역·상동호수공원·부천터미널 생활권을 담당합니다. 송내동은 송내역과 중동·상동 인접권을, 역곡 생활권은 역곡역·괴안동 인접권을 담당합니다. 부천 19개 대표 지역 전체는 <a href="/wonmi-gu/">원미구</a>, <a href="/sosa-gu/">소사구</a>, <a href="/ojeong-gu/">오정구</a> 페이지에서 한눈에 확인하실 수 있습니다.</p>
 </section>
 
 <section id="stations">
 <h2>부천역·신중동역·상동역·소사역 역세권 안내</h2>
 <p>역세권 안내는 1호선·서해선·7호선 주요 역세권을 기준으로 구성합니다. 각 역 페이지에서는 인근 생활권, 주변 대표 동, 예약 가능 시간, 방문 전 준비사항을 설명하며, 출구별 페이지나 역과 테마를 조합한 페이지는 만들지 않습니다. 환승역도 노선이 여러 개라도 역명 기준 한 페이지만 운영합니다.</p>
 <ul class="card-grid">
-<li><a href="/gyeonggi/bucheon/station/bucheon-station/">부천역</a></li>
-<li><a href="/gyeonggi/bucheon/station/sinjungdong-station/">신중동역</a></li>
-<li><a href="/gyeonggi/bucheon/station/bucheon-cityhall-station/">부천시청역</a></li>
-<li><a href="/gyeonggi/bucheon/station/sangdong-station/">상동역</a></li>
-<li><a href="/gyeonggi/bucheon/station/songnae-station/">송내역</a></li>
-<li><a href="/gyeonggi/bucheon/station/yeokgok-station/">역곡역</a></li>
-<li><a href="/gyeonggi/bucheon/station/sosa-station/">소사역</a></li>
-<li><a href="/gyeonggi/bucheon/station/wonjong-station/">원종역</a></li>
+<li><a href="/station/bucheon-station/">부천역</a></li>
+<li><a href="/station/sinjungdong-station/">신중동역</a></li>
+<li><a href="/station/bucheon-cityhall-station/">부천시청역</a></li>
+<li><a href="/station/sangdong-station/">상동역</a></li>
+<li><a href="/station/songnae-station/">송내역</a></li>
+<li><a href="/station/yeokgok-station/">역곡역</a></li>
+<li><a href="/station/sosa-station/">소사역</a></li>
+<li><a href="/station/wonjong-station/">원종역</a></li>
 </ul>
-<p>부천을 지나는 13개 역세권 전체는 <a href="/gyeonggi/bucheon/station/">역세권 안내</a>에서 확인하실 수 있습니다.</p>
+<p>부천을 지나는 13개 역세권 전체는 <a href="/station/">역세권 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section id="living">
 <h2>생활권으로 위치를 찾는 방법</h2>
 <p>역과 동 이름이 애매할 때는 생활권 기준이 위치를 찾기 더 쉽습니다. 신중동·부천시청, 상동역·상동호수공원, 옥길·범박, 원종·고강처럼 인접한 역과 동을 묶은 생활권 페이지에서 본인 위치에 가까운 거점을 고르시면 됩니다.</p>
 <ul class="card-grid">
-<li><a href="/gyeonggi/bucheon/area/sinjungdong-cityhall/">신중동·부천시청</a></li>
-<li><a href="/gyeonggi/bucheon/area/sangdong-lake-park/">상동역·상동호수공원</a></li>
-<li><a href="/gyeonggi/bucheon/area/songnae-station/">송내역·송내동</a></li>
-<li><a href="/gyeonggi/bucheon/area/okgil-beombak/">옥길·범박</a></li>
-<li><a href="/gyeonggi/bucheon/area/wonjong-gogang/">원종·고강</a></li>
-<li><a href="/gyeonggi/bucheon/area/">생활권 전체 보기</a></li>
+<li><a href="/area/sinjungdong-cityhall/">신중동·부천시청</a></li>
+<li><a href="/area/sangdong-lake-park/">상동역·상동호수공원</a></li>
+<li><a href="/area/songnae-station/">송내역·송내동</a></li>
+<li><a href="/area/okgil-beombak/">옥길·범박</a></li>
+<li><a href="/area/wonjong-gogang/">원종·고강</a></li>
+<li><a href="/area/">생활권 전체 보기</a></li>
 </ul>
 </section>
 
 <section id="check">
 <h2>부천시 홈타이 예약 전 확인사항</h2>
-<p>부천 출장마사지 예약 전에는 방문 가능 지역, 예약 가능 시간, 추가 이동비, 결제 방식, 취소 기준, 개인정보 처리 기준을 먼저 확인하시는 것이 좋습니다. 중동·상동처럼 접근성이 좋은 지역도 있지만 고강동, 성곡동, 옥길동, 범박동 일부는 시간대에 따라 차량 이동 기준이 달라질 수 있습니다. 예약 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에서, 방문 전 준비는 <a href="/gyeonggi/bucheon/before-visit/">이용 전 확인사항</a>에서, 홈타이가 처음이라면 <a href="/gyeonggi/bucheon/hometai-guide/">홈타이 이용 가이드</a>에서 확인해 주세요.</p>
+<p>부천 출장마사지 예약 전에는 방문 가능 지역, 예약 가능 시간, 추가 이동비, 결제 방식, 취소 기준, 개인정보 처리 기준을 먼저 확인하시는 것이 좋습니다. 중동·상동처럼 접근성이 좋은 지역도 있지만 고강동, 성곡동, 옥길동, 범박동 일부는 시간대에 따라 차량 이동 기준이 달라질 수 있습니다. 예약 절차는 <a href="/reservation/">예약 안내</a>에서, 방문 전 준비는 <a href="/before-visit/">이용 전 확인사항</a>에서, 홈타이가 처음이라면 <a href="/hometai-guide/">홈타이 이용 가이드</a>에서 확인해 주세요.</p>
 </section>
 
 <section id="dedup">
@@ -128,7 +128,7 @@ _BODY = f"""
 """
 
 PAGE = {
-    "path": "gyeonggi/bucheon/",
+    "path": "",
     "title": "부천시 출장마사지｜상동·중동·송내·역곡 홈타이 지역 안내",
     "desc": "부천 출장마사지·홈타이 예약 전 상동·중동·송내·역곡·원종 생활권을 확인하세요.",
     "h1": "부천시 출장마사지 · 부천시 홈타이 지역별 예약 안내",

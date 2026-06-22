@@ -3,11 +3,11 @@
 from .site import BRAND, PHONE, PHONE_DISPLAY
 
 PAGE = {
-    "path": "gyeonggi/bucheon/about/",
+    "path": "about/",
     "title": f"운영자 소개·콘텐츠 원칙 | {BRAND}",
     "desc": f"{BRAND}의 운영 주체와 콘텐츠 작성·검수 방식, 운영 원칙을 공개합니다.",
     "h1": "운영자 소개와 콘텐츠 원칙",
-    "breadcrumb": [("고객센터", "/gyeonggi/bucheon/support/"), ("사이트 소개", None)],
+    "breadcrumb": [("고객센터", "/support/"), ("사이트 소개", None)],
     "body": f"""
 <p class="lead">이 사이트의 모든 안내가 누가, 어떻게, 왜 만든 것인지 공개합니다. 읽는 분이 정보의 출처와 책임 소재를 확인할 수 있어야 신뢰할 수 있는 안내라고 믿기 때문입니다.</p>
 
@@ -38,7 +38,7 @@ PAGE = {
 
 <section id="contact">
 <h2>연락처와 정정 요청</h2>
-<p>운영과 콘텐츠에 대한 모든 연락은 한 곳으로 받습니다. 전화 {PHONE_DISPLAY}(24시간), 통화가 어려우면 같은 번호로 문자를 남겨주시면 됩니다. 내용 오류 제보, 정정 요청, 제휴 제안 모두 환영하며, 확인 후 처리 결과를 회신드립니다. 개인정보 처리 기준은 <a href="/gyeonggi/bucheon/privacy/">개인정보처리방침</a>에서, 서비스 이용 조건은 <a href="/gyeonggi/bucheon/terms/">이용약관</a>에서 확인하실 수 있습니다. 자주 묻는 질문은 <a href="/gyeonggi/bucheon/support/">고객센터</a>에 정리되어 있습니다.</p>
+<p>운영과 콘텐츠에 대한 모든 연락은 한 곳으로 받습니다. 전화 {PHONE_DISPLAY}(24시간), 통화가 어려우면 같은 번호로 문자를 남겨주시면 됩니다. 내용 오류 제보, 정정 요청, 제휴 제안 모두 환영하며, 확인 후 처리 결과를 회신드립니다. 개인정보 처리 기준은 <a href="/privacy/">개인정보처리방침</a>에서, 서비스 이용 조건은 <a href="/terms/">이용약관</a>에서 확인하실 수 있습니다. 자주 묻는 질문은 <a href="/support/">고객센터</a>에 정리되어 있습니다.</p>
 </section>
 """ + f"""
 <section class="cta">

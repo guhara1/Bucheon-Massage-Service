@@ -13,12 +13,12 @@ _CTA = f"""
 
 def _area(slug, name, title, desc, h1, body):
     return {
-        "path": f"gyeonggi/bucheon/area/{slug}/",
+        "path": f"area/{slug}/",
         "title": title,
         "desc": desc,
         "h1": h1,
         "body": body + PRICING + _CTA,
-        "breadcrumb": [("생활권 안내", "/gyeonggi/bucheon/area/"), (name, None)],
+        "breadcrumb": [("생활권 안내", "/area/"), (name, None)],
     }
 
 
@@ -34,18 +34,18 @@ _HUB_BODY = """
 <section>
 <h2>열두 개 생활권 한눈에 보기</h2>
 <ul class="card-grid">
-<li><a href="/gyeonggi/bucheon/area/bucheon-station-simgok/">부천역·심곡동 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/sinjungdong-cityhall/">신중동·부천시청 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/sangdong-lake-park/">상동역·상동호수공원 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/songnae-station/">송내역·송내동 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/yeokgok-station-area/">역곡역·역곡 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/sosa-station-sosabon/">소사역·소사본동 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/okgil-beombak/">옥길·범박 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/chunui-dodang/">춘의·도당 산업 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/wonjong-gogang/">원종·고강 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/ojeong-samjeong/">오정·삼정 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/kkachiul-seonggok/">까치울·성곡 생활권</a></li>
-<li><a href="/gyeonggi/bucheon/area/stadium-yeowol/">부천종합운동장·여월 생활권</a></li>
+<li><a href="/area/bucheon-station-simgok/">부천역·심곡동 생활권</a></li>
+<li><a href="/area/sinjungdong-cityhall/">신중동·부천시청 생활권</a></li>
+<li><a href="/area/sangdong-lake-park/">상동역·상동호수공원 생활권</a></li>
+<li><a href="/area/songnae-station/">송내역·송내동 생활권</a></li>
+<li><a href="/area/yeokgok-station-area/">역곡역·역곡 생활권</a></li>
+<li><a href="/area/sosa-station-sosabon/">소사역·소사본동 생활권</a></li>
+<li><a href="/area/okgil-beombak/">옥길·범박 생활권</a></li>
+<li><a href="/area/chunui-dodang/">춘의·도당 산업 생활권</a></li>
+<li><a href="/area/wonjong-gogang/">원종·고강 생활권</a></li>
+<li><a href="/area/ojeong-samjeong/">오정·삼정 생활권</a></li>
+<li><a href="/area/kkachiul-seonggok/">까치울·성곡 생활권</a></li>
+<li><a href="/area/stadium-yeowol/">부천종합운동장·여월 생활권</a></li>
 </ul>
 <p>위 열두 개 생활권은 크게 1호선 축(부천역·소사역·역곡역), 7호선 축(신중동·부천시청·상동·춘의·부천종합운동장), 그리고 외곽 주거·산업 생활권(옥길·원종·오정·까치울)으로 나누어 볼 수 있습니다. 본인이 자주 이용하는 지하철역이나 익숙한 동네 이름을 떠올려 가장 가까운 카드를 누르시면 됩니다. 카드를 누르면 그 권역의 거점, 이동 동선, 방문 형태, 예약 시 참고사항이 한 페이지에 정리되어 있습니다.</p>
 </section>
@@ -71,7 +71,7 @@ _HUB_BODY = """
 <section>
 <h2>경계 지역과 인접 도시</h2>
 <p>부천은 동쪽으로 서울 양천·구로·강서, 서쪽으로 인천 부평과 맞닿아 있어 생활권이 시 경계를 넘나드는 곳이 많습니다. 역곡 생활권은 서울 온수, 옥길 생활권은 서울 항동, 원종·고강 생활권은 서울 화곡·강서와 생활권을 공유하고, 송내 생활권은 인천 부평과 가깝습니다. 본 안내는 모두 부천시 기준으로 작성했지만, 경계에 거주하시는 분도 가까운 부천 생활권 페이지를 보시면 됩니다.</p>
-<p>정확한 방문 가능 여부는 도로명 주소를 기준으로 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a> 단계에서 확인해 드립니다. 경계 지역이라 방문이 어려울까 미리 단정하지 마시고, 위치를 알려주시면 가능 여부를 바로 안내해 드립니다.</p>
+<p>정확한 방문 가능 여부는 도로명 주소를 기준으로 <a href="/reservation/">예약 안내</a> 단계에서 확인해 드립니다. 경계 지역이라 방문이 어려울까 미리 단정하지 마시고, 위치를 알려주시면 가능 여부를 바로 안내해 드립니다.</p>
 </section>
 
 <section>
@@ -97,7 +97,7 @@ _HUB_BODY = """
 """
 
 HUB = {
-    "path": "gyeonggi/bucheon/area/",
+    "path": "area/",
     "title": "부천 출장마사지 생활권 안내｜신중동·상동·옥길·원종",
     "desc": "부천시 전역을 12개 생활권으로 나눠 역·동 기준으로 위치를 쉽게 찾도록 돕는 안내 허브입니다.",
     "h1": "부천시 생활권별 안내",
@@ -112,7 +112,7 @@ _A1_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 생활권의 한가운데에는 <a href="/gyeonggi/bucheon/station/bucheon-station/">부천역</a>이 있습니다. 부천역은 부천에서 가장 오래된 역세권이자 유동인구가 가장 많은 거점으로, 역 북부의 자유시장과 남부의 상업지구가 권역의 두 축을 이룹니다. 부천역을 기준으로 북쪽 골목으로 들어가면 오래된 주택과 빌라가 밀집한 <a href="/gyeonggi/bucheon/wonmi-dong/">원미동</a>이, 남쪽으로는 옛 시청 자리를 품은 <a href="/gyeonggi/bucheon/simgok-dong/">심곡동</a>과 <a href="/gyeonggi/bucheon/simgokbon-dong/">심곡본동</a>이 이어집니다.</p>
+<p>이 생활권의 한가운데에는 <a href="/station/bucheon-station/">부천역</a>이 있습니다. 부천역은 부천에서 가장 오래된 역세권이자 유동인구가 가장 많은 거점으로, 역 북부의 자유시장과 남부의 상업지구가 권역의 두 축을 이룹니다. 부천역을 기준으로 북쪽 골목으로 들어가면 오래된 주택과 빌라가 밀집한 <a href="/wonmi-dong/">원미동</a>이, 남쪽으로는 옛 시청 자리를 품은 <a href="/simgok-dong/">심곡동</a>과 <a href="/simgokbon-dong/">심곡본동</a>이 이어집니다.</p>
 <p>길이 좁고 일방통행이 많아 같은 권역 안에서도 위치를 정확히 짚는 것이 중요합니다. 오랜 세월에 걸쳐 형성된 만큼 같은 골목이라도 번지마다 분위기가 다르고, 재정비가 진행 중인 구역과 옛 모습을 간직한 구역이 한 블록 안에 섞여 있기도 합니다. 그래서 이 권역에서는 행정동 이름보다 가까운 거점과 골목 위치를 기준으로 안내하는 편이 훨씬 직관적입니다.</p>
 </section>
 
@@ -131,7 +131,7 @@ _A1_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>이 권역은 같은 심곡동·원미동 안에서도 번지에 따라 골목 진입로가 완전히 달라집니다. 도로명 주소와 함께 가까운 큰 건물이나 교차로 이름을 알려주시면 방문 동선을 빠르게 잡을 수 있습니다. 빌라 방문 시에는 동·호수와 현관 비밀번호 또는 출입 방법을, 숙소 방문 시에는 건물명과 객실 번호를 함께 전해 주세요.</p>
-<p>도로가 좁아 차량 진입이 어려운 구간은 가까운 큰길까지의 위치를 함께 알려주시면 좋습니다. 자세한 절차와 준비 사항은 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>도로가 좁아 차량 진입이 어려운 구간은 가까운 큰길까지의 위치를 함께 알려주시면 좋습니다. 자세한 절차와 준비 사항은 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -183,8 +183,8 @@ _A2_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 생활권은 <a href="/gyeonggi/bucheon/station/sinjungdong-station/">신중동역</a>과 <a href="/gyeonggi/bucheon/station/bucheon-cityhall-station/">부천시청역</a> 두 거점을 중심으로 형성됩니다. 부천시청역 일대에는 부천시청과 시의회 등 행정기관이 모여 있고, 신중동역 주변은 백화점과 대형 상권이 밀집한 부천 최대의 번화가입니다.</p>
-<p>두 역 사이를 잇는 중동신도시 대로변에는 고층 주상복합과 오피스텔이 줄지어 있어, 이 권역은 <a href="/gyeonggi/bucheon/jung-dong/">중동</a>의 상업·주거 중심이라 할 수 있습니다. 서쪽으로는 <a href="/gyeonggi/bucheon/yakdae-dong/">약대동</a>이 이어져 아파트 단지와 학교가 밀집한 주거 배후를 이룹니다. 행정과 상업, 고층 주거가 한 권역에 모여 있어 시간대마다 거리의 표정이 크게 달라지는 것이 특징입니다.</p>
+<p>이 생활권은 <a href="/station/sinjungdong-station/">신중동역</a>과 <a href="/station/bucheon-cityhall-station/">부천시청역</a> 두 거점을 중심으로 형성됩니다. 부천시청역 일대에는 부천시청과 시의회 등 행정기관이 모여 있고, 신중동역 주변은 백화점과 대형 상권이 밀집한 부천 최대의 번화가입니다.</p>
+<p>두 역 사이를 잇는 중동신도시 대로변에는 고층 주상복합과 오피스텔이 줄지어 있어, 이 권역은 <a href="/jung-dong/">중동</a>의 상업·주거 중심이라 할 수 있습니다. 서쪽으로는 <a href="/yakdae-dong/">약대동</a>이 이어져 아파트 단지와 학교가 밀집한 주거 배후를 이룹니다. 행정과 상업, 고층 주거가 한 권역에 모여 있어 시간대마다 거리의 표정이 크게 달라지는 것이 특징입니다.</p>
 </section>
 
 <section>
@@ -202,7 +202,7 @@ _A2_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>주상복합과 오피스텔이 많은 권역인 만큼, 건물명과 동·호수, 공동현관 출입 방법을 함께 알려주시는 것이 핵심입니다. 같은 단지 안에서도 출입동이 여러 곳인 경우가 있어, 어느 게이트로 들어가면 되는지 알려주시면 좋습니다. 주차나 방문객 출입 등록이 필요한 건물은 미리 말씀해 주세요.</p>
-<p>번화가 인근 숙소를 이용하실 때는 건물명과 객실 번호를 함께 전해 주시면 됩니다. 자세한 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에 정리되어 있습니다.</p>
+<p>번화가 인근 숙소를 이용하실 때는 건물명과 객실 번호를 함께 전해 주시면 됩니다. 자세한 절차는 <a href="/reservation/">예약 안내</a>에 정리되어 있습니다.</p>
 </section>
 
 <section>
@@ -254,7 +254,7 @@ _A3_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 중심은 <a href="/gyeonggi/bucheon/station/sangdong-station/">상동역</a>입니다. 상동역 일대에는 부천종합터미널과 대형 백화점·복합쇼핑몰이 모여 있어 부천 동부의 소비 중심을 이룹니다. 역에서 가까운 <a href="/gyeonggi/bucheon/sang-dong/">상동</a>은 계획적으로 조성된 신도시로, 호수를 낀 상동호수공원과 아인스월드 일대가 권역의 랜드마크입니다.</p>
+<p>이 권역의 중심은 <a href="/station/sangdong-station/">상동역</a>입니다. 상동역 일대에는 부천종합터미널과 대형 백화점·복합쇼핑몰이 모여 있어 부천 동부의 소비 중심을 이룹니다. 역에서 가까운 <a href="/sang-dong/">상동</a>은 계획적으로 조성된 신도시로, 호수를 낀 상동호수공원과 아인스월드 일대가 권역의 랜드마크입니다.</p>
 <p>넓은 보행로와 대단지 아파트, 학원가가 어우러져 가족 단위 거주 비중이 높은 생활권입니다. 터미널과 쇼핑몰이라는 강한 거점이 있어 외부에서 찾아오기에도 길을 잡기 쉬운 편이며, 호수공원이라는 뚜렷한 랜드마크가 권역의 동서를 가르는 기준점 역할을 합니다.</p>
 </section>
 
@@ -273,7 +273,7 @@ _A3_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>대단지가 많은 권역이라 같은 단지 안에서도 출입 게이트가 여러 곳입니다. 단지명, 동·호수, 그리고 어느 출입구가 가까운지를 함께 알려주시면 방문 동선을 빠르게 잡습니다. 방문객 차량 등록이 필요한 단지는 미리 말씀해 주세요.</p>
-<p>호수공원 인근 숙소는 건물명과 객실 번호를 함께 전해 주세요. 자세한 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
+<p>호수공원 인근 숙소는 건물명과 객실 번호를 함께 전해 주세요. 자세한 절차는 <a href="/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
 </section>
 
 <section>
@@ -325,8 +325,8 @@ _A4_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 중심은 <a href="/gyeonggi/bucheon/station/songnae-station/">송내역</a>입니다. 송내역은 1호선 급행이 정차하는 부천 남부의 관문으로, 광역버스 환승센터가 함께 있어 서울 도심과 인천 방면으로 이동이 활발한 거점입니다.</p>
-<p>역 주변 <a href="/gyeonggi/bucheon/songnae-dong/">송내동</a>은 아파트 단지와 상가가 어우러진 주거지이고, 북쪽으로는 신도시 <a href="/gyeonggi/bucheon/sang-dong/">상동</a>과 자연스럽게 이어집니다. 역세권 상권과 주거가 가깝게 붙어 있어 생활 반경이 짧은 권역으로, 역을 중심에 두고 보면 위치를 가늠하기 쉽습니다.</p>
+<p>이 권역의 중심은 <a href="/station/songnae-station/">송내역</a>입니다. 송내역은 1호선 급행이 정차하는 부천 남부의 관문으로, 광역버스 환승센터가 함께 있어 서울 도심과 인천 방면으로 이동이 활발한 거점입니다.</p>
+<p>역 주변 <a href="/songnae-dong/">송내동</a>은 아파트 단지와 상가가 어우러진 주거지이고, 북쪽으로는 신도시 <a href="/sang-dong/">상동</a>과 자연스럽게 이어집니다. 역세권 상권과 주거가 가깝게 붙어 있어 생활 반경이 짧은 권역으로, 역을 중심에 두고 보면 위치를 가늠하기 쉽습니다.</p>
 </section>
 
 <section>
@@ -344,7 +344,7 @@ _A4_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>송내역 일대는 같은 동이라도 역 북부와 남부의 진입 동선이 다릅니다. 도로명 주소와 함께 역 어느 방향인지, 가까운 큰 건물이 무엇인지 알려주시면 빠르게 위치를 잡습니다. 인천 부평 경계 쪽 주소도 위치에 따라 방문이 가능하니, 애매하면 포기하지 마시고 문의해 주세요.</p>
-<p>아파트는 동·호수와 출입구를, 오피스텔은 건물명과 공동현관 출입 방법을 함께 전해 주세요. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>아파트는 동·호수와 출입구를, 오피스텔은 건물명과 공동현관 출입 방법을 함께 전해 주세요. 절차는 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -396,8 +396,8 @@ _A5_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 중심은 <a href="/gyeonggi/bucheon/station/yeokgok-station/">역곡역</a>입니다. 역곡역은 부천과 서울 경계에 자리한 1호선 역으로, 인근 대학과 상권이 어우러진 활기찬 역세권입니다.</p>
-<p>역 주변 <a href="/gyeonggi/bucheon/yeokgok-area/">역곡 생활권</a>은 원룸과 상가가 빽빽한 대학가 분위기를 띠고, 남쪽 <a href="/gyeonggi/bucheon/goean-dong/">괴안동</a>은 빌라와 다세대주택이 밀집한 조용한 주거지입니다. 역 하나를 사이에 두고 대학가와 주택가가 공존하는 것이 이 생활권의 특징으로, 같은 역곡이라도 어느 방향인지에 따라 거리 풍경이 사뭇 다릅니다.</p>
+<p>이 권역의 중심은 <a href="/station/yeokgok-station/">역곡역</a>입니다. 역곡역은 부천과 서울 경계에 자리한 1호선 역으로, 인근 대학과 상권이 어우러진 활기찬 역세권입니다.</p>
+<p>역 주변 <a href="/yeokgok-area/">역곡 생활권</a>은 원룸과 상가가 빽빽한 대학가 분위기를 띠고, 남쪽 <a href="/goean-dong/">괴안동</a>은 빌라와 다세대주택이 밀집한 조용한 주거지입니다. 역 하나를 사이에 두고 대학가와 주택가가 공존하는 것이 이 생활권의 특징으로, 같은 역곡이라도 어느 방향인지에 따라 거리 풍경이 사뭇 다릅니다.</p>
 </section>
 
 <section>
@@ -415,7 +415,7 @@ _A5_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>이 권역은 골목이 좁고 경사가 있는 구간이 많아, 도로명 주소와 함께 가까운 상가나 큰 건물, 언덕 위인지 아래인지를 알려주시면 위치를 정확히 잡습니다. 원룸·빌라는 동·호수와 현관 출입 방법을 함께 전해 주세요.</p>
-<p>서울 온수 경계 쪽 주소도 위치에 따라 방문이 가능하니 미리 단정하지 마시고 문의해 주세요. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
+<p>서울 온수 경계 쪽 주소도 위치에 따라 방문이 가능하니 미리 단정하지 마시고 문의해 주세요. 절차는 <a href="/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
 </section>
 
 <section>
@@ -467,8 +467,8 @@ _A6_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역은 <a href="/gyeonggi/bucheon/station/sosa-station/">소사역</a>과 <a href="/gyeonggi/bucheon/station/sosaeul-station/">소새울역</a> 두 거점을 중심으로 형성됩니다. 소사역은 1호선과 서해선이 만나는 환승역으로 교통 결절점 역할을 하고, 소새울역은 서해선을 따라 남쪽 주거지로 이어집니다.</p>
-<p>역 주변 <a href="/gyeonggi/bucheon/sosabon-dong/">소사본동</a>은 언덕을 낀 오래된 주택가이고, 북쪽 <a href="/gyeonggi/bucheon/simgokbon-dong/">심곡본동</a>은 부천역 원도심과 맞닿은 주거지입니다. 옛 소사 지역 특유의 정감 있는 골목 풍경이 남아 있는 생활권으로, 환승역이 생기면서 남북 이동이 한층 편해졌습니다.</p>
+<p>이 권역은 <a href="/station/sosa-station/">소사역</a>과 <a href="/station/sosaeul-station/">소새울역</a> 두 거점을 중심으로 형성됩니다. 소사역은 1호선과 서해선이 만나는 환승역으로 교통 결절점 역할을 하고, 소새울역은 서해선을 따라 남쪽 주거지로 이어집니다.</p>
+<p>역 주변 <a href="/sosabon-dong/">소사본동</a>은 언덕을 낀 오래된 주택가이고, 북쪽 <a href="/simgokbon-dong/">심곡본동</a>은 부천역 원도심과 맞닿은 주거지입니다. 옛 소사 지역 특유의 정감 있는 골목 풍경이 남아 있는 생활권으로, 환승역이 생기면서 남북 이동이 한층 편해졌습니다.</p>
 </section>
 
 <section>
@@ -486,7 +486,7 @@ _A6_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>언덕과 골목이 많은 권역이라 도로명 주소와 함께 가까운 큰 건물, 언덕 위인지 아래인지를 알려주시면 위치를 정확히 잡습니다. 빌라는 동·호수와 현관 출입 방법을, 오피스텔은 건물명과 출입 방식을 함께 전해 주세요.</p>
-<p>차량 진입이 어려운 골목은 가까운 큰길 위치를 함께 알려주시면 좋습니다. 자세한 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>차량 진입이 어려운 골목은 가까운 큰길 위치를 함께 알려주시면 좋습니다. 자세한 절차는 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -538,8 +538,8 @@ _A7_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 관문 역은 <a href="/gyeonggi/bucheon/station/sosaeul-station/">소새울역</a>입니다. 서해선 소새울역에서 남쪽으로 내려가면 계획적으로 조성된 옥길지구가 펼쳐집니다.</p>
-<p><a href="/gyeonggi/bucheon/okgil-dong/">옥길동</a>은 신축 아파트 단지와 상가, 공원이 어우러진 신도시 분위기를 띠고, <a href="/gyeonggi/bucheon/beombak-dong/">범박동</a>은 옥길지구와 산자락이 만나는 주거지입니다. 부천에서 가장 최근에 자리 잡은 생활권 중 하나로, 젊은 가족 거주 비중이 높고 단지 사이로 공원과 녹지가 넉넉해 차분한 분위기가 흐릅니다.</p>
+<p>이 권역의 관문 역은 <a href="/station/sosaeul-station/">소새울역</a>입니다. 서해선 소새울역에서 남쪽으로 내려가면 계획적으로 조성된 옥길지구가 펼쳐집니다.</p>
+<p><a href="/okgil-dong/">옥길동</a>은 신축 아파트 단지와 상가, 공원이 어우러진 신도시 분위기를 띠고, <a href="/beombak-dong/">범박동</a>은 옥길지구와 산자락이 만나는 주거지입니다. 부천에서 가장 최근에 자리 잡은 생활권 중 하나로, 젊은 가족 거주 비중이 높고 단지 사이로 공원과 녹지가 넉넉해 차분한 분위기가 흐릅니다.</p>
 </section>
 
 <section>
@@ -557,7 +557,7 @@ _A7_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>신축 대단지가 많아 같은 단지 안에서도 출입 게이트가 여러 곳입니다. 단지명, 동·호수, 가까운 출입구, 방문객 차량 등록 필요 여부를 함께 알려주시면 방문이 매끄럽습니다.</p>
-<p>지하철과 거리가 있는 위치는 가까운 큰 건물이나 정류장을 함께 전해 주시면 동선을 잡기 쉽습니다. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
+<p>지하철과 거리가 있는 위치는 가까운 큰 건물이나 정류장을 함께 전해 주시면 동선을 잡기 쉽습니다. 절차는 <a href="/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
 </section>
 
 <section>
@@ -609,8 +609,8 @@ _A8_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역은 <a href="/gyeonggi/bucheon/station/chunui-station/">춘의역</a>과 <a href="/gyeonggi/bucheon/station/bucheon-stadium-station/">부천종합운동장역</a> 두 거점을 중심으로 형성됩니다. 춘의역 일대에는 부천테크노파크와 중소 제조·업무 시설이 모여 있어 낮 동안 직장 인구가 많습니다.</p>
-<p><a href="/gyeonggi/bucheon/chunui-dong/">춘의동</a>은 산업단지와 주거가 섞인 권역이고, <a href="/gyeonggi/bucheon/dodang-dong/">도당동</a>은 공장·창고와 빌라 주거가 공존하는 지역입니다. 일과 생활이 한 권역 안에 겹쳐 있는 것이 이 생활권의 특징으로, 산업단지 구간과 주거 구간이 블록 단위로 나뉘어 있습니다.</p>
+<p>이 권역은 <a href="/station/chunui-station/">춘의역</a>과 <a href="/station/bucheon-stadium-station/">부천종합운동장역</a> 두 거점을 중심으로 형성됩니다. 춘의역 일대에는 부천테크노파크와 중소 제조·업무 시설이 모여 있어 낮 동안 직장 인구가 많습니다.</p>
+<p><a href="/chunui-dong/">춘의동</a>은 산업단지와 주거가 섞인 권역이고, <a href="/dodang-dong/">도당동</a>은 공장·창고와 빌라 주거가 공존하는 지역입니다. 일과 생활이 한 권역 안에 겹쳐 있는 것이 이 생활권의 특징으로, 산업단지 구간과 주거 구간이 블록 단위로 나뉘어 있습니다.</p>
 </section>
 
 <section>
@@ -628,7 +628,7 @@ _A8_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>산업단지와 주거가 섞인 권역이라 도로명 주소와 함께 가까운 큰 건물이나 공단 단지명을 알려주시면 위치를 정확히 잡습니다. 빌라·오피스텔은 동·호수와 현관 출입 방법을, 숙소는 건물명과 객실 번호를 함께 전해 주세요.</p>
-<p>야간 방문은 가능한 시간을 미리 조율하시면 좋습니다. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>야간 방문은 가능한 시간을 미리 조율하시면 좋습니다. 절차는 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -680,7 +680,7 @@ _A9_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 중심은 <a href="/gyeonggi/bucheon/station/wonjong-station/">원종역</a>입니다. 서해선 개통으로 새 역세권이 형성된 <a href="/gyeonggi/bucheon/wonjong-dong/">원종동</a>은 빌라와 다세대주택이 빽빽한 부천 대표 주거 밀집지이고, 북쪽 <a href="/gyeonggi/bucheon/gogang-dong/">고강동</a>은 야트막한 언덕을 낀 오래된 주택가입니다.</p>
+<p>이 권역의 중심은 <a href="/station/wonjong-station/">원종역</a>입니다. 서해선 개통으로 새 역세권이 형성된 <a href="/wonjong-dong/">원종동</a>은 빌라와 다세대주택이 빽빽한 부천 대표 주거 밀집지이고, 북쪽 <a href="/gogang-dong/">고강동</a>은 야트막한 언덕을 낀 오래된 주택가입니다.</p>
 <p>두 동 모두 서울 강서구와 맞닿아, 부천이면서도 서울 생활권을 함께 쓰는 분이 많은 곳입니다. 골목이 촘촘한 전형적인 주거 권역으로, 같은 번지라도 진입로가 갈리는 경우가 많아 거점과 골목 방향을 기준으로 위치를 잡는 편이 편합니다.</p>
 </section>
 
@@ -699,7 +699,7 @@ _A9_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>빌라촌이 촘촘한 권역이라 도로명 주소와 함께 가까운 큰 건물, 골목 진입 방향, 언덕 위아래를 알려주시면 위치를 정확히 잡습니다. 빌라는 동·호수와 현관 출입 방법을 함께 전해 주세요.</p>
-<p>서울 화곡·강서 경계 쪽 주소도 위치에 따라 방문이 가능하니 미리 단정하지 마시고 문의해 주세요. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
+<p>서울 화곡·강서 경계 쪽 주소도 위치에 따라 방문이 가능하니 미리 단정하지 마시고 문의해 주세요. 절차는 <a href="/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
 </section>
 
 <section>
@@ -751,7 +751,7 @@ _A10_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 중심은 <a href="/gyeonggi/bucheon/ojeong-dong/">오정동</a>입니다. 오정동에는 옛 오정구 행정 기능과 주거가 모여 있고, 인근 <a href="/gyeonggi/bucheon/sinheung-dong/">신흥동</a>과 삼정 일대에는 산업단지와 물류 시설이 자리합니다.</p>
+<p>이 권역의 중심은 <a href="/ojeong-dong/">오정동</a>입니다. 오정동에는 옛 오정구 행정 기능과 주거가 모여 있고, 인근 <a href="/sinheung-dong/">신흥동</a>과 삼정 일대에는 산업단지와 물류 시설이 자리합니다.</p>
 <p>지하철역과는 거리가 있어 버스와 차량 이동이 중심인 권역으로, 대로변 상권과 안쪽 주거지가 뚜렷하게 나뉩니다. 일과 생활, 행정이 한 권역에 모여 부천 북부 생활의 한 축을 이루며, 산업 구간과 주거 구간이 간선도로를 기준으로 나뉘어 있습니다.</p>
 </section>
 
@@ -770,7 +770,7 @@ _A10_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>지하철과 거리가 있고 산업단지가 섞인 권역이라, 도로명 주소와 함께 가까운 큰 건물, 단지명, 정류장 등을 알려주시면 위치를 정확히 잡습니다. 아파트는 동·호수와 출입구 위치를, 빌라는 현관 출입 방법을 함께 전해 주세요.</p>
-<p>야간 방문은 가능한 시간을 미리 조율하시면 좋습니다. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
+<p>야간 방문은 가능한 시간을 미리 조율하시면 좋습니다. 절차는 <a href="/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
 </section>
 
 <section>
@@ -822,8 +822,8 @@ _A11_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 관문은 <a href="/gyeonggi/bucheon/station/kkachiul-station/">까치울역</a>입니다. 7호선 까치울역은 부천과 서울 경계 가까이에 자리해 도심 접근이 편하면서도 한적한 분위기를 띱니다.</p>
-<p>역 인근 <a href="/gyeonggi/bucheon/seonggok-dong/">성곡동</a>은 아파트 단지와 빌라가 어우러진 주거지이고, 인근 작동·여월 일대는 산자락과 녹지가 가까운 차분한 환경입니다. 산업·상업 거점이 밀집한 다른 권역과 달리, 주거와 녹지가 중심을 이루는 생활권으로, 같은 권역이라도 역세권 쪽과 녹지 쪽의 표정이 다릅니다.</p>
+<p>이 권역의 관문은 <a href="/station/kkachiul-station/">까치울역</a>입니다. 7호선 까치울역은 부천과 서울 경계 가까이에 자리해 도심 접근이 편하면서도 한적한 분위기를 띱니다.</p>
+<p>역 인근 <a href="/seonggok-dong/">성곡동</a>은 아파트 단지와 빌라가 어우러진 주거지이고, 인근 작동·여월 일대는 산자락과 녹지가 가까운 차분한 환경입니다. 산업·상업 거점이 밀집한 다른 권역과 달리, 주거와 녹지가 중심을 이루는 생활권으로, 같은 권역이라도 역세권 쪽과 녹지 쪽의 표정이 다릅니다.</p>
 </section>
 
 <section>
@@ -841,7 +841,7 @@ _A11_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>녹지 인접 권역이라 같은 동 안에서도 위치에 따라 진입로가 다릅니다. 도로명 주소와 함께 가까운 단지명이나 큰 건물, 산자락 방향인지를 알려주시면 위치를 정확히 잡습니다. 아파트는 동·호수와 출입구를, 빌라는 현관 출입 방법을 함께 전해 주세요.</p>
-<p>한적한 위치는 가까운 정류장이나 큰길까지의 위치를 함께 알려주시면 좋습니다. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
+<p>한적한 위치는 가까운 정류장이나 큰길까지의 위치를 함께 알려주시면 좋습니다. 절차는 <a href="/reservation/">예약 안내</a>에서 확인하실 수 있습니다.</p>
 </section>
 
 <section>
@@ -893,8 +893,8 @@ _A12_BODY = """
 
 <section>
 <h2>생활권의 중심 거점</h2>
-<p>이 권역의 중심은 <a href="/gyeonggi/bucheon/station/bucheon-stadium-station/">부천종합운동장역</a>입니다. 부천종합운동장과 체육·문화 시설이 모여 있어 행사와 경기 때 유동인구가 크게 늘어나는 거점입니다.</p>
-<p>역 주변 <a href="/gyeonggi/bucheon/seonggok-dong/">성곡동</a>과 <a href="/gyeonggi/bucheon/chunui-dong/">춘의동</a> 일부, 그리고 계획적으로 조성된 여월지구가 한 권역을 이룹니다. 여월지구는 공원과 신축 단지가 어우러진 차분한 주거 환경으로, 운동장 거점과 신도시 주거가 공존하는 것이 이 생활권의 특징입니다.</p>
+<p>이 권역의 중심은 <a href="/station/bucheon-stadium-station/">부천종합운동장역</a>입니다. 부천종합운동장과 체육·문화 시설이 모여 있어 행사와 경기 때 유동인구가 크게 늘어나는 거점입니다.</p>
+<p>역 주변 <a href="/seonggok-dong/">성곡동</a>과 <a href="/chunui-dong/">춘의동</a> 일부, 그리고 계획적으로 조성된 여월지구가 한 권역을 이룹니다. 여월지구는 공원과 신축 단지가 어우러진 차분한 주거 환경으로, 운동장 거점과 신도시 주거가 공존하는 것이 이 생활권의 특징입니다.</p>
 </section>
 
 <section>
@@ -912,7 +912,7 @@ _A12_BODY = """
 <section>
 <h2>예약 시 함께 알려주시면 좋은 정보</h2>
 <p>신축 단지가 많은 권역이라 단지명, 동·호수, 가까운 출입구, 방문객 차량 등록 필요 여부를 함께 알려주시면 방문이 매끄럽습니다. 운동장 인근 숙소는 건물명과 객실 번호를 전해 주세요.</p>
-<p>행사가 있는 날은 운동장 주변이 붐빌 수 있으니 방문 시간을 여유 있게 잡으시면 좋습니다. 절차는 <a href="/gyeonggi/bucheon/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
+<p>행사가 있는 날은 운동장 주변이 붐빌 수 있으니 방문 시간을 여유 있게 잡으시면 좋습니다. 절차는 <a href="/reservation/">예약 안내</a>를 참고하시면 됩니다.</p>
 </section>
 
 <section>
