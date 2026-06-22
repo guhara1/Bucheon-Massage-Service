@@ -133,7 +133,7 @@ PAGE = {
     "desc": "부천 출장마사지·홈타이 예약 전 상동·중동·송내·역곡·원종 생활권을 확인하세요.",
     "h1": "부천시 출장마사지 · 부천시 홈타이 지역별 예약 안내",
     "body": _BODY,
-    "extra_head": "",
+    "extra_head": '<meta name="naver-site-verification" content="86fa3a4ee920f13a42e1e3423d548bad46c2d71e">\n',
     "breadcrumb": [],
     "hero": _HERO,
 }

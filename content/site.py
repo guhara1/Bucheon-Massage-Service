@@ -11,6 +11,9 @@ PHONE_DISPLAY = "0508-202-4719"
 TELEGRAM_BUILD = "https://t.me/googleseolab"      # 웹사이트 제작문의
 TELEGRAM_PARTNER = "https://t.me/googleseolab"     # 제휴문의
 
+# IndexNow 키 — 빙·네이버·얀덱스에 즉시 색인 통보. /<INDEXNOW_KEY>.txt 로 소유권 검증.
+INDEXNOW_KEY = "740a4a73858c09af74843505c9bdc6a0"
+
 # 사이트 루트(부천 메인) 경로
 HOME = "/"
 

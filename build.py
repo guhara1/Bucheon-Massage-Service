@@ -15,12 +15,13 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from content import PAGES
-from content.site import (BASE_URL, BRAND, BRAND_MARK, HOME, NAV, PHONE,
-                          PHONE_DISPLAY, TELEGRAM_BUILD, TELEGRAM_PARTNER)
+from content.site import (BASE_URL, BRAND, BRAND_MARK, HOME, INDEXNOW_KEY, NAV,
+                          PHONE, PHONE_DISPLAY, TELEGRAM_BUILD, TELEGRAM_PARTNER)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MIN_INDEX_CHARS = 2000
@@ -266,6 +267,7 @@ def render_page(page: dict) -> str:
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="{BRAND} 최신 안내" href="/rss.xml">
 {schema}{extra_head}</head>
 <body>
 <header class="site-header">
@@ -359,7 +361,7 @@ def render_page(page: dict) -> str:
 
 def build() -> None:
     report = []
-    sitemap_urls = []
+    indexable = []  # [{url, title, desc}] — sitemap·rss·indexnow 공용
 
     for page in PAGES:
         path = page["path"]
@@ -372,21 +374,71 @@ def build() -> None:
         chars = text_length(page["body"])
         noindex = page.get("noindex", False) or chars < MIN_INDEX_CHARS
         if not noindex:
-            sitemap_urls.append(BASE + "/" + path)
+            indexable.append({
+                "url": BASE + "/" + path,
+                "title": page["title"],
+                "desc": page["desc"],
+            })
         desc_len = len(page["desc"])
         report.append((path or "/", chars, "noindex" if noindex else "index", desc_len))
 
-    # sitemap.xml — 부천 메인을 맨 앞에
-    sitemap_urls.sort(key=lambda u: (u != BASE + HOME, u))
-    urls = "\n".join(f"  <url><loc>{u}</loc></url>" for u in sitemap_urls)
+    # 부천 메인을 맨 앞에 정렬
+    home_url = BASE + HOME
+    indexable.sort(key=lambda p: (p["url"] != home_url, p["url"]))
+
+    now = datetime.now(timezone.utc)
+    lastmod = now.strftime("%Y-%m-%d")
+    rss_date = now.strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    # sitemap.xml — lastmod 포함, 메인 priority 1.0
+    rows = []
+    for p in indexable:
+        pr = "1.0" if p["url"] == home_url else "0.8"
+        rows.append(
+            f"  <url><loc>{p['url']}</loc>"
+            f"<lastmod>{lastmod}</lastmod>"
+            f"<changefreq>weekly</changefreq>"
+            f"<priority>{pr}</priority></url>"
+        )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            f"{urls}\n</urlset>\n"
+            + "\n".join(rows) + "\n</urlset>\n"
         )
 
-    # robots.txt
+    # rss.xml — 색인 발견(디스커버리)용 피드
+    items = []
+    for p in indexable:
+        items.append(
+            "    <item>\n"
+            f"      <title>{html.escape(p['title'])}</title>\n"
+            f"      <link>{p['url']}</link>\n"
+            f"      <guid isPermaLink=\"true\">{p['url']}</guid>\n"
+            f"      <description>{html.escape(p['desc'])}</description>\n"
+            f"      <pubDate>{rss_date}</pubDate>\n"
+            "    </item>"
+        )
+    with open(os.path.join(ROOT, "rss.xml"), "w", encoding="utf-8") as f:
+        f.write(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+            "  <channel>\n"
+            f"    <title>{html.escape(BRAND)} — 부천 출장마사지·홈타이 안내</title>\n"
+            f"    <link>{home_url}</link>\n"
+            f"    <atom:link href=\"{BASE}/rss.xml\" rel=\"self\" type=\"application/rss+xml\"/>\n"
+            "    <description>부천시 방문 관리(출장마사지·홈타이) 지역·역세권·생활권 안내</description>\n"
+            "    <language>ko</language>\n"
+            f"    <lastBuildDate>{rss_date}</lastBuildDate>\n"
+            + "\n".join(items) + "\n"
+            "  </channel>\n</rss>\n"
+        )
+
+    # IndexNow 키 검증 파일 — /<KEY>.txt 에 키 문자열만 담는다.
+    with open(os.path.join(ROOT, f"{INDEXNOW_KEY}.txt"), "w", encoding="utf-8") as f:
+        f.write(INDEXNOW_KEY + "\n")
+
+    # robots.txt — sitemap·rss 명시
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(
             "User-agent: *\nAllow: /\n\n"
@@ -405,7 +457,7 @@ def build() -> None:
         if d > MAX_DESC_CHARS:
             flags += f"  !desc {d}자"
         print(f"{p.ljust(width)}  {str(c).rjust(5)}  {r.ljust(8)}  {str(d).rjust(3)}{flags}")
-    print(f"\n{len(report)} pages built, {len(sitemap_urls)} in sitemap.")
+    print(f"\n{len(report)} pages built, {len(indexable)} in sitemap/rss.")
 
 
 if __name__ == "__main__":

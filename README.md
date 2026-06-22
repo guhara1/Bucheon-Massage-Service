@@ -44,3 +44,41 @@ python3 build.py
 - CSS 디자인 토큰을 프리미엄 팔레트(옵시디언 네이비 + 샴페인 골드 + 오렌지 액센트)로 교체.
 - 푸터 "웹사이트 제작문의 / 제휴문의" 오렌지 버튼은 텔레그램으로 연결되는 컴포넌트 오버레이입니다.
 - 폰트는 Pretendard 우선, Noto Sans/Serif KR 폴백.
+
+## 색인(인덱싱) — 가장 빠르게
+
+빌드 시 다음이 자동 생성됩니다.
+
+- `sitemap.xml` — `lastmod`·`changefreq`·`priority` 포함, 메인이 priority 1.0
+- `rss.xml` — 색인 디스커버리용 피드(모든 페이지 `<link rel="alternate">` 로도 노출)
+- `robots.txt` — `Sitemap:` 라인 포함
+- `<INDEXNOW_KEY>.txt` — IndexNow 소유권 검증 파일(루트)
+- 메인 페이지에 네이버 사이트 검증 메타 태그
+
+### 1) 빙·네이버·얀덱스 — IndexNow (즉시 통보)
+```bash
+python build.py                 # sitemap·rss·키파일 생성 → 배포
+python tools/indexnow.py        # 전체 URL 일괄 통보
+# 새 글/페이지만 즉시 통보:
+python tools/indexnow.py https://bucheon-massage-service.pages.dev/jung-dong/
+```
+IndexNow 엔드포인트 한 번 호출로 **빙·네이버·얀덱스**에 함께 전파됩니다.
+(키 검증 파일이 배포되어 공개된 뒤 실행하세요.)
+
+### 2) 구글
+구글은 IndexNow 미참여입니다. 다음을 권장합니다.
+- **Search Console 에 사이트 등록 + `sitemap.xml` 제출**(가장 확실).
+- (선택) Indexing API 즉시 통보: 서비스 계정 준비 후
+  ```bash
+  pip install google-auth requests
+  export GOOGLE_APPLICATION_CREDENTIALS=/path/service-account.json
+  python tools/google_index.py
+  ```
+- 참고: 구글·빙의 옛 `sitemap ping` 엔드포인트는 2023년 폐지되어 동작하지 않습니다.
+
+### 글 올릴 때마다 권장 루틴
+```bash
+python build.py && git add -A && git commit -m "..." && git push   # 배포
+python tools/indexnow.py <새 URL ...>     # 빙·네이버 즉시 통보
+python tools/google_index.py <새 URL ...> # (선택) 구글 즉시 통보
+```
