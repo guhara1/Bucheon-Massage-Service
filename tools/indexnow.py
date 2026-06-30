@@ -11,8 +11,8 @@ Search Console + 사이트맵을 사용하세요.
   python tools/indexnow.py
 
   # 2) 글/페이지를 새로 올렸을 때 해당 URL만 즉시 통보
-  python tools/indexnow.py https://bucheon-massage-service.pages.dev/jung-dong/ \
-                           https://bucheon-massage-service.pages.dev/sang-dong/
+  python tools/indexnow.py https://bucheon-massage-service.netlify.app/jung-dong/ \
+                           https://bucheon-massage-service.netlify.app/sang-dong/
 
   # 3) 빌드부터 통보까지 한 번에
   python build.py && python tools/indexnow.py

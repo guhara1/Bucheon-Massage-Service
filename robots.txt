@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+User-agent: Yeti
+Allow: /
+User-agent: Googlebot
+Allow: /
+User-agent: bingbot
+Allow: /
 
-Sitemap: https://bucheon-massage-service.pages.dev/sitemap.xml
+Sitemap: https://bucheon-massage-service.netlify.app/sitemap.xml
+Sitemap: https://bucheon-massage-service.netlify.app/rss.xml

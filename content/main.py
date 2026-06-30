@@ -2,6 +2,7 @@
 # 방문형 사이트이므로 LocalBusiness 스키마는 쓰지 않는다(스키마는 build.py가 자동 주입).
 from .site import BRAND, PHONE, PHONE_DISPLAY
 from .pricing import PRICING
+from .reviews import REVIEWS_HTML
 
 _HERO = f"""<section class="hero">
   <div class="hero-inner">
@@ -99,6 +100,65 @@ _BODY = f"""
 <p>거주 지역 기준이 편하시면 구별·지역별 안내를, 역 기준이 익숙하시면 역세권 안내를, 위치 설명이 애매하면 생활권 안내를 보시면 됩니다. 어느 기준으로 들어오셔도 예약 절차와 비용 기준은 동일하며, 최종 안내는 언제나 정확한 주소를 기준으로 이루어집니다. 메인 페이지는 부천 전체 안내를 담당하고, 구별 페이지는 원미구·소사구·오정구의 큰 생활권을, 대표 지역 페이지는 중동·상동·송내동·역곡 생활권·원종동·옥길동 같은 세부 검색을 담당합니다.</p>
 </section>
 
+<section id="longtail">
+<h2>부천 동네별·역세권·생활권 출장마사지 한눈에 보기</h2>
+<p>찾으시는 위치를 바로 누르실 수 있도록 부천 전지역 안내를 주제별로 모았습니다. 동네 이름이 익숙하시면 동네별 안내를, 가까운 역이 떠오르시면 역세권 안내를, 위치 설명이 애매하면 생활권 안내를 눌러 주세요. 어느 경로로 들어오셔도 예약 절차와 요금 기준은 동일합니다.</p>
+<h3>동네별 부천 출장마사지·홈타이</h3>
+<ul class="card-grid link-cloud">
+<li><a href="/jung-dong/">중동 출장마사지</a></li>
+<li><a href="/sang-dong/">상동 출장마사지</a></li>
+<li><a href="/songnae-dong/">송내동 출장마사지</a></li>
+<li><a href="/yeokgok-area/">역곡 생활권 출장마사지</a></li>
+<li><a href="/simgok-dong/">심곡동 출장마사지</a></li>
+<li><a href="/wonmi-dong/">원미동 출장마사지</a></li>
+<li><a href="/chunui-dong/">춘의동 출장마사지</a></li>
+<li><a href="/dodang-dong/">도당동 출장마사지</a></li>
+<li><a href="/yakdae-dong/">약대동 출장마사지</a></li>
+<li><a href="/simgokbon-dong/">심곡본동 출장마사지</a></li>
+<li><a href="/sosabon-dong/">소사본동 출장마사지</a></li>
+<li><a href="/okgil-dong/">옥길동 출장마사지</a></li>
+<li><a href="/beombak-dong/">범박동 출장마사지</a></li>
+<li><a href="/goean-dong/">괴안동 출장마사지</a></li>
+<li><a href="/wonjong-dong/">원종동 출장마사지</a></li>
+<li><a href="/gogang-dong/">고강동 출장마사지</a></li>
+<li><a href="/ojeong-dong/">오정동 출장마사지</a></li>
+<li><a href="/seonggok-dong/">성곡동 출장마사지</a></li>
+<li><a href="/sinheung-dong/">신흥동 출장마사지</a></li>
+</ul>
+<h3>역세권별 부천 홈타이</h3>
+<ul class="card-grid link-cloud">
+<li><a href="/station/bucheon-station/">부천역 홈타이</a></li>
+<li><a href="/station/sinjungdong-station/">신중동역 홈타이</a></li>
+<li><a href="/station/bucheon-cityhall-station/">부천시청역 홈타이</a></li>
+<li><a href="/station/sangdong-station/">상동역 홈타이</a></li>
+<li><a href="/station/songnae-station/">송내역 홈타이</a></li>
+<li><a href="/station/yeokgok-station/">역곡역 홈타이</a></li>
+<li><a href="/station/sosa-station/">소사역 홈타이</a></li>
+<li><a href="/station/sosaeul-station/">소새울역 홈타이</a></li>
+<li><a href="/station/kkachiul-station/">까치울역 홈타이</a></li>
+<li><a href="/station/bucheon-stadium-station/">부천종합운동장역 홈타이</a></li>
+<li><a href="/station/chunui-station/">춘의역 홈타이</a></li>
+<li><a href="/station/jungdong-station/">중동역 홈타이</a></li>
+<li><a href="/station/wonjong-station/">원종역 홈타이</a></li>
+</ul>
+<h3>생활권별 부천 방문 관리</h3>
+<ul class="card-grid link-cloud">
+<li><a href="/area/bucheon-station-simgok/">부천역·심곡동 방문 관리</a></li>
+<li><a href="/area/sinjungdong-cityhall/">신중동·부천시청 방문 관리</a></li>
+<li><a href="/area/sangdong-lake-park/">상동역·상동호수공원 방문 관리</a></li>
+<li><a href="/area/songnae-station/">송내역·송내동 방문 관리</a></li>
+<li><a href="/area/yeokgok-station-area/">역곡역·역곡 방문 관리</a></li>
+<li><a href="/area/sosa-station-sosabon/">소사역·소사본동 방문 관리</a></li>
+<li><a href="/area/okgil-beombak/">옥길·범박 방문 관리</a></li>
+<li><a href="/area/chunui-dodang/">춘의·도당 산업 방문 관리</a></li>
+<li><a href="/area/wonjong-gogang/">원종·고강 방문 관리</a></li>
+<li><a href="/area/ojeong-samjeong/">오정·삼정 방문 관리</a></li>
+<li><a href="/area/kkachiul-seonggok/">까치울·성곡 방문 관리</a></li>
+<li><a href="/area/stadium-yeowol/">부천종합운동장·여월 방문 관리</a></li>
+</ul>
+<p>자치구 단위로 한 번에 보고 싶으시면 <a href="/wonmi-gu/">원미구 출장마사지</a>, <a href="/sosa-gu/">소사구 출장마사지</a>, <a href="/ojeong-gu/">오정구 출장마사지</a> 안내에서 대표 지역을 묶어 확인하실 수 있습니다. 처음이시라면 <a href="/hometai-guide/">홈타이 이용 가이드</a>와 <a href="/before-visit/">이용 전 확인사항</a>을 먼저 살펴보시길 권합니다.</p>
+</section>
+
 <section id="faq">
 <h2>자주 묻는 질문</h2>
 <div class="faq-item">
@@ -119,6 +179,7 @@ _BODY = f"""
 </div>
 </section>
 
+{REVIEWS_HTML}
 {PRICING}
 <section id="contact" class="cta">
 <h2>예약문의</h2>
@@ -133,7 +194,7 @@ PAGE = {
     "desc": "부천 출장마사지·홈타이 예약 전 상동·중동·송내·역곡·원종 생활권을 확인하세요.",
     "h1": "부천시 출장마사지 · 부천시 홈타이 지역별 예약 안내",
     "body": _BODY,
-    "extra_head": '<meta name="naver-site-verification" content="86fa3a4ee920f13a42e1e3423d548bad46c2d71e">\n',
+    "extra_head": '<meta name="naver-site-verification" content="f1db3c937831c46a83fd59902e42fe628fa10675">\n',
     "breadcrumb": [],
     "hero": _HERO,
 }

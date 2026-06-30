@@ -20,6 +20,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from content import PAGES
+from content.reviews import AGG, REVIEWS
 from content.site import (BASE_URL, BRAND, BRAND_MARK, HOME, INDEXNOW_KEY, NAV,
                           PHONE, PHONE_DISPLAY, TELEGRAM_BUILD, TELEGRAM_PARTNER)
 
@@ -59,6 +60,45 @@ def render_nav(current_path: str) -> str:
                 f'<li class="nav-item{active}"><a href="{href}">{label}</a></li>'
             )
     return "".join(items)
+
+
+# 전지역 롱테일 내부링크 — 모든 하위 페이지 하단에 자동 삽입.
+# NAV 의 지역/역/생활권 그룹에서 실제 페이지 링크만 모아 롱테일 앵커로 노출한다.
+_RELATED_GROUPS = [
+    ("구별 안내", "자치구별 안내", "출장마사지"),
+    ("지역별 안내", "동네별 출장마사지", "출장마사지"),
+    ("역세권 안내", "역세권별 홈타이", "홈타이"),
+    ("생활권 안내", "생활권별 방문 관리", "방문 관리"),
+]
+_RELATED_SKIP = {"/", "/station/", "/area/", "/#districts", "/#areas"}
+
+
+def render_related(current_path: str) -> str:
+    current = "/" + current_path
+    nav_map = {label: children for label, _href, children in NAV}
+    cols = []
+    for src_label, head, theme in _RELATED_GROUPS:
+        children = nav_map.get(src_label, [])
+        links = []
+        for c_label, c_href in children:
+            if "#" in c_href or c_href in _RELATED_SKIP or c_href == current:
+                continue
+            anchor = c_label if theme in c_label else f"{c_label} {theme}"
+            links.append(f'<li><a href="{c_href}">{anchor}</a></li>')
+        if links:
+            cols.append(
+                '<div class="area-links-col">'
+                f'<p class="area-links-head">{head}</p>'
+                f'<ul>{"".join(links)}</ul></div>'
+            )
+    if not cols:
+        return ""
+    return (
+        '<nav class="area-links" aria-label="부천 전지역 안내 바로가기">'
+        '<p class="area-links-title">부천 전지역·역세권·생활권 안내 바로가기</p>'
+        f'<div class="area-links-groups">{"".join(cols)}</div>'
+        '</nav>'
+    )
 
 
 def render_breadcrumb(crumbs) -> str:
@@ -121,6 +161,74 @@ def _organization() -> dict:
         "image": OG_IMAGE,
         "logo": OG_IMAGE,
         "areaServed": {"@type": "AdministrativeArea", "name": "경기도 부천시"},
+    }
+
+
+# 코스별 기본 요금 — content/pricing.py 와 동일(스키마 OfferCatalog 용)
+COURSES = [
+    ("60분 코스", "기본 컨디션·릴랙스 케어", "90000"),
+    ("90분 코스", "아로마 포함 추천 구성", "150000"),
+    ("120분 코스", "전신 집중 프리미엄 케어", "180000"),
+]
+
+
+def _service() -> dict:
+    """Service + AggregateRating + Review + OfferCatalog — 후기·평점·점수·요금 통합 스키마.
+    방문형 서비스 특성에 맞춰 LocalBusiness 대신 Service 로 표현한다."""
+    reviews = [
+        {
+            "@type": "Review",
+            "author": {"@type": "Person", "name": r["author"]},
+            "datePublished": r["date"],
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": str(r["rating"]),
+                "bestRating": "5",
+                "worstRating": "1",
+            },
+            "reviewBody": r["text"],
+        }
+        for r in REVIEWS
+    ]
+    offers = [
+        {
+            "@type": "Offer",
+            "name": name,
+            "description": desc,
+            "price": price,
+            "priceCurrency": "KRW",
+            "availability": "https://schema.org/InStock",
+        }
+        for name, desc, price in COURSES
+    ]
+    return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "부천 출장마사지·홈타이 방문 관리",
+        "serviceType": ["출장마사지", "홈타이", "방문 마사지"],
+        "url": BASE + HOME,
+        "image": OG_IMAGE,
+        "provider": {
+            "@type": "Organization",
+            "name": BRAND,
+            "url": BASE + HOME,
+            "telephone": PHONE,
+            "image": OG_IMAGE,
+        },
+        "areaServed": {"@type": "AdministrativeArea", "name": "경기도 부천시"},
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": AGG["value"],
+            "reviewCount": AGG["count"],
+            "bestRating": AGG["best"],
+            "worstRating": AGG["worst"],
+        },
+        "review": reviews,
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "코스별 기본 요금",
+            "itemListElement": offers,
+        },
     }
 
 
@@ -196,6 +304,7 @@ def build_schema(page: dict, canonical: str) -> str:
         _webpage(page["title"], page["desc"], canonical),
         _breadcrumb(page.get("breadcrumb") or [], canonical),
         _organization(),
+        _service(),
         _image_object(),
     ]
     faq = _faqpage(page["body"])
@@ -238,6 +347,7 @@ def render_page(page: dict) -> str:
     body, toc_items = inject_toc(body)
     toc_html = render_toc(toc_items)
     layout_cls = "page-layout has-toc" if toc_html else "page-layout"
+    related_html = "" if path == "" else render_related(path)
 
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -291,6 +401,7 @@ def render_page(page: dict) -> str:
       {render_breadcrumb(crumbs)}
       {h1_html}
       {body}
+      {related_html}
     </article>
   </div>
 </main>
@@ -387,17 +498,19 @@ def build() -> None:
     indexable.sort(key=lambda p: (p["url"] != home_url, p["url"]))
 
     now = datetime.now(timezone.utc)
-    lastmod = now.strftime("%Y-%m-%d")
+    lastmod = now.strftime("%Y-%m-%dT%H:%M:%S+00:00")  # W3C 전체 datetime — 재크롤 신선도 강화
     rss_date = now.strftime("%a, %d %b %Y %H:%M:%S +0000")
 
-    # sitemap.xml — lastmod 포함, 메인 priority 1.0
+    # sitemap.xml — lastmod(시각 포함), 메인 priority 1.0·changefreq daily
     rows = []
     for p in indexable:
-        pr = "1.0" if p["url"] == home_url else "0.8"
+        is_home = p["url"] == home_url
+        pr = "1.0" if is_home else "0.8"
+        cf = "daily" if is_home else "weekly"
         rows.append(
             f"  <url><loc>{p['url']}</loc>"
             f"<lastmod>{lastmod}</lastmod>"
-            f"<changefreq>weekly</changefreq>"
+            f"<changefreq>{cf}</changefreq>"
             f"<priority>{pr}</priority></url>"
         )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
@@ -438,11 +551,19 @@ def build() -> None:
     with open(os.path.join(ROOT, f"{INDEXNOW_KEY}.txt"), "w", encoding="utf-8") as f:
         f.write(INDEXNOW_KEY + "\n")
 
-    # robots.txt — sitemap·rss 명시
+    # robots.txt — 전 검색엔진 전체 허용 + 사이트맵·RSS 명시(구글·네이버·빙 색인 발견 가속)
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(
-            "User-agent: *\nAllow: /\n\n"
+            "User-agent: *\n"
+            "Allow: /\n"
+            "User-agent: Yeti\n"          # 네이버 크롤러 명시 허용
+            "Allow: /\n"
+            "User-agent: Googlebot\n"
+            "Allow: /\n"
+            "User-agent: bingbot\n"
+            "Allow: /\n\n"
             f"Sitemap: {BASE}/sitemap.xml\n"
+            f"Sitemap: {BASE}/rss.xml\n"
         )
 
     # .nojekyll (GitHub Pages)
