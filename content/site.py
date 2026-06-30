@@ -1,6 +1,6 @@
 # 사이트 공통 설정 — 부천 출장마사지·홈타이 안내
 # 커스텀 도메인 연결 시 BASE_URL 을 해당 도메인으로 변경하세요.
-BASE_URL = "https://bucheon-massage-service.pages.dev"
+BASE_URL = "https://bucheon-massage-service.netlify.app"
 
 BRAND = "바로 GO"
 BRAND_MARK = "GO"            # 헤더 로고 원형 마크

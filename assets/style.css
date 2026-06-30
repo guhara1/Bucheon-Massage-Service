@@ -692,3 +692,92 @@ th { background: var(--panel-2); color: var(--gold-soft); font-family: var(--ser
   .page-content section { padding: 26px 22px 22px; border-radius: 14px; }
   .cta { padding: 36px 20px; }
 }
+
+/* ──────────────────────────────────────────
+   이용 후기·평점 (reviews)
+   ────────────────────────────────────────── */
+.reviews-lead { color: var(--text-dim); }
+.reviews-summary {
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+  margin: 18px 0 24px; padding: 20px 24px;
+  background:
+    radial-gradient(ellipse 70% 140% at 0% 0%, rgba(212, 175, 105, 0.12), transparent 60%),
+    var(--panel-2);
+  border: 1px solid var(--line-gold); border-radius: 14px;
+}
+.rv-score { display: flex; align-items: baseline; gap: 6px; }
+.rv-score strong {
+  font-family: var(--serif); font-size: 3rem; line-height: 1;
+  color: var(--gold-soft);
+}
+.rv-score span { color: var(--text-dim); font-size: 1rem; }
+.rv-score-meta { display: flex; flex-direction: column; gap: 4px; }
+.rv-count { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+.rv-count strong { color: var(--text); }
+.rv-stars { font-size: 1.05rem; letter-spacing: 2px; color: var(--line); }
+.rv-stars .rv-on { color: var(--gold); }
+
+.reviews-grid {
+  display: grid; gap: 14px; margin: 8px 0 18px; list-style: none;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.rv-card {
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 13px; padding: 18px 20px; margin: 0;
+  transition: 0.18s;
+}
+.rv-card:hover {
+  border-color: var(--line-gold);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+.rv-card-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.rv-author { font-weight: 700; color: var(--text); }
+.rv-card .rv-stars { font-size: 0.95rem; }
+.rv-meta { margin: 4px 0 10px; color: var(--gold-deep); font-size: 0.85rem; letter-spacing: 0.02em; }
+.rv-text { margin: 0 0 12px; color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; }
+.rv-date { color: var(--text-dim); font-size: 0.8rem; opacity: 0.7; }
+.reviews-note { color: var(--text-dim); font-size: 0.85rem; opacity: 0.85; }
+
+/* 롱테일 링크 클라우드 (메인 전지역 색인) */
+.link-cloud { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); }
+.page-content #longtail h3 {
+  margin: 24px 0 4px; font-size: 1.05rem; color: var(--gold-soft);
+}
+
+/* ──────────────────────────────────────────
+   하단 전지역 내부링크 (area-links) — 모든 하위 페이지 자동 삽입
+   ────────────────────────────────────────── */
+.area-links {
+  margin: 38px 0 0; padding: 26px 26px 22px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-top: 2px solid var(--line-gold); border-radius: 16px;
+}
+.area-links-title {
+  margin: 0 0 18px; font-family: var(--serif); font-weight: 700;
+  font-size: 1.12rem; color: var(--gold-soft);
+}
+.area-links-groups {
+  display: grid; gap: 22px 28px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.area-links-head {
+  margin: 0 0 10px; font-size: 0.9rem; font-weight: 700;
+  color: var(--text); padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.area-links-col ul { list-style: none; margin: 0; padding: 0; }
+.area-links-col li { margin: 0; }
+.area-links-col a {
+  display: block; padding: 5px 0; color: var(--text-dim);
+  font-size: 0.9rem; transition: 0.15s;
+}
+.area-links-col a:hover { color: var(--gold-soft); padding-left: 5px; }
+
+@media (max-width: 640px) {
+  .reviews-summary { gap: 16px; padding: 18px 18px; }
+  .rv-score strong { font-size: 2.5rem; }
+  .area-links { padding: 22px 18px 18px; }
+}

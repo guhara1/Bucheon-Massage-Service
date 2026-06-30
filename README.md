@@ -60,7 +60,7 @@ python3 build.py
 python build.py                 # sitemap·rss·키파일 생성 → 배포
 python tools/indexnow.py        # 전체 URL 일괄 통보
 # 새 글/페이지만 즉시 통보:
-python tools/indexnow.py https://bucheon-massage-service.pages.dev/jung-dong/
+python tools/indexnow.py https://bucheon-massage-service.netlify.app/jung-dong/
 ```
 IndexNow 엔드포인트 한 번 호출로 **빙·네이버·얀덱스**에 함께 전파됩니다.
 (키 검증 파일이 배포되어 공개된 뒤 실행하세요.)
